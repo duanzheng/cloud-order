@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = function(sequelize, DataTypes) {
-    var Hotel = sequelize.define('hotel_info', {
+    var Hotel = sequelize.define('hotel', {
         'name': {
             'type': DataTypes.STRING,
             'allowNull': false
