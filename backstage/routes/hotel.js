@@ -37,7 +37,6 @@ router.get('/getHotelInfo', function(req, res, next) {
                     'id': hotelId
                 }
             });
-
             if (hotel.length > 0) {
                 res.json({
                     error: 0,
