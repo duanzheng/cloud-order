@@ -1,0 +1,7 @@
+<view >
+	4
+  <navigator url="../page1/page1" open-type="navigate" hover-start-time="50" hover-stay-time="600" hover-class="blue">MyPage1</navigator>
+  <navigator url="../page2/page2" open-type="navigate" hover-start-time="50" hover-stay-time="600" hover-class="blue">MyPage2</navigator>
+  <navigator url="../page3/page3" open-type="navigate" hover-start-time="50" hover-stay-time="600" hover-class="blue">MyPage3</navigator>
+  <navigator url="../page4/page4" open-type="navigate" hover-start-time="50" hover-stay-time="600" hover-class="blue">MyPage4</navigator>
+</view>

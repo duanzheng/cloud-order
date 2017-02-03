@@ -1,0 +1,6 @@
+<view >
+  <navigator url="pages/MyPage1/MyPage1" open-type="switchTab" hover-start-time="50" hover-stay-time="600" hover-class="blue">MyPage1</navigator>
+  <navigator url="pages/MyPage2/MyPage2" open-type="switchTab" hover-start-time="50" hover-stay-time="600" hover-class="blue">MyPage2</navigator>
+  <navigator url="pages/MyPage3/MyPage3" open-type="switchTab" hover-start-time="50" hover-stay-time="600" hover-class="blue">MyPage3</navigator>
+  <navigator url="pages/MyPage4/MyPage4" open-type="switchTab" hover-start-time="50" hover-stay-time="600" hover-class="blue">MyPage4</navigator>
+</view>
