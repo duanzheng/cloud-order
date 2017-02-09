@@ -3,7 +3,7 @@ var router = express.Router();
 var models = require('../models');
 var co = require('co');
 
-router.get('/insertHotel', function(req, res, next) {
+router.post('/insertHotel', function(req, res, next) {
     var ret = {};
 
     if (true) {
@@ -28,8 +28,8 @@ router.get('/insertHotel', function(req, res, next) {
 });
 
 //查询酒店信息
-router.get('/getHotelInfo', function(req, res, next) {
-    var hotelId = req.query.id;
+router.post('/getHotelInfo', function(req, res, next) {
+    var hotelId = req.body.id;
     if (hotelId) {
         co(function* () {
             var hotel = yield models.hotel.findAll({
