@@ -4,6 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var webpack = require('webpack');
+var webpackConf = require('./webpack.config');
 
 var routes = require('./routes/index');
 var users  = require('./routes/users');
@@ -22,6 +24,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+var compiler = webpack(webpackConf);
+
+var webpackDevOptions = {
+  noInfo: true,
+  historyApiFallback: true,
+  publicPath: webpackConf.output.publicPath,
+  headers: {
+    'Access-Control-Allow-Origin': '*'
+  }
+};
+
+app.use(require('webpack-dev-middleware')(compiler, webpackDevOptions));
+app.use(require('webpack-hot-middleware')(compiler));
 
 app.use('/', routes);
 app.use('/users', users);
