@@ -3,35 +3,36 @@
  */
 import React, {Component, PropTypes} from 'react'
 import {Button, Modal} from 'react-bootstrap'
+import moment from 'moment'
 
 class OrderItem extends Component {
     constructor(props) {
         super(props)
 
-        const {beginDate, endDate, arriveTime, roomName, roomNumber, customerName, totalCost} = props
+        const {beginDate, endDate, arriveTime, roomName, roomNumber, customerName, totalCost} = props.msg
 
         this.state = {
-            dateMsg: '',
+            dateMsg: this.initDate(beginDate, endDate),
             arriveTime,
             roomName,
             roomNumber,
             customerName,
             totalCost
         }
-
-        this.initDate(beginDate, endDate)
     }
 
     initDate(beginDate, endDate) {
-        beginDate = new Date(beginDate).getMonth() + 1
+        // beginDate = moment(beginDate, 'MM-DD')
+        // endDate = moment(endDate, 'MM-DD')
+        let ret = beginDate + '至' + endDate + ' 3晚'
 
-        return new Date()
+        return ret
     }
 
     render() {
         return (
             <li>
-
+                {this.state.dateMsg}
             </li>
         )
     }

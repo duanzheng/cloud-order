@@ -22,7 +22,6 @@ class MainPage extends Component {
                         {this.props.latelyOrderList.map((item) =>
                             <OrderItem key={item.id} msg={item}></OrderItem>
                         )}
-                        Panel content
                     </Panel>
                 </section>
                 <section className="mainpage-list-container">
