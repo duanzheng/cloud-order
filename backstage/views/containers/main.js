@@ -2,6 +2,7 @@
  * Created by duanzheng on 2017/2/9.
  */
 import React, {Component, PropTypes} from 'react'
+import CommonHeader from '../components/commonHeader'
 
 class Main extends Component {
     constructor(props) {
@@ -10,7 +11,12 @@ class Main extends Component {
 
     render() {
         return (
-            <div>23363</div>
+            <div>
+                <CommonHeader></CommonHeader>
+                <div className="container">
+                    {this.props.children}
+                </div>
+            </div>
         )
     }
 }

@@ -4,15 +4,26 @@ import {Route, IndexRoute, browserHistory, Router} from 'react-router'
 import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 import reducer from './reducers'
-import Main from './containers/Main'
+import Main from './containers/main'
+import MainPage from './containers/mainPage'
+import OrderMain from './containers/orderMain'
 
 const store = createStore(reducer)
+if (module.hot) {
+    // Enable Webpack hot module replacement for reducers
+    module.hot.accept('./reducers', () => {
+        const nextReducer = require('./reducers');
+        store.replaceReducer(nextReducer);
+    });
+}
 
 ReactDOM.render(
     <Provider store={store}>
         <Router history={browserHistory}>
             <Route path="/" component={Main}>
-
+                <IndexRoute component={MainPage}></IndexRoute>
+                <Route path="/index" component={MainPage}></Route>
+                <Route path="/order-main" component={OrderMain}></Route>
             </Route>
         </Router>
     </Provider>,
