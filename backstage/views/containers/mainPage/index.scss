@@ -1,0 +1,9 @@
+.mainpage-list-container {
+  width: 370px;
+  margin-left: 15px;
+  display: inline-block;
+  vertical-align: top;
+  &:first-child {
+    margin-left: 0;
+  }
+}

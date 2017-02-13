@@ -1,6 +1,5 @@
 var path = require('path');
 var webpack = require('webpack');
-var sassLoader = 'style!css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!sass?sourceMap=true&sourceMapContents=true';
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -25,7 +24,7 @@ module.exports = {
       include: [
         path.resolve(__dirname, 'views'),
       ],
-      loader: sassLoader
+      loader: 'style-loader!css-loader!sass-loader'
     }],
   },
   resolve: {
