@@ -34,7 +34,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.scss', '.css'],
   },
   plugins: [
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.HotModuleReplacementPlugin()
   ],
 };
