@@ -1,18 +1,18 @@
 {
   "development": {
-    "username": "test",
+    "username": "root",
     "password": "123456",
     "database": "cloud_order",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "port": 3333
+    "port": 3306
   },
   "production": {
-    "username": "test",
+    "username": "root",
     "password": "123456",
     "database": "cloud_order",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "port": 3333
+    "port": 3306
   }
 }

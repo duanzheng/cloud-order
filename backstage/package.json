@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "start": "cross-env DEBUG=express-sequelize node ./bin/www",
-    "start-wp": "webpack-dev-server --devtool eval --progress --hot --content-base views",
+    "start-wp": "webpack-dev-server --inline --progress --hot --content-base ./bin/www",
     "build": "webpack",
     "test": "npm run test-unit && npm run test-integration",
     "test-unit": "cross-env NODE_ENV=test ./node_modules/.bin/mocha test/unit/*.test.js",

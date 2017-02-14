@@ -1,0 +1,30 @@
+.order-item-row-content {
+  overflow: hidden;
+
+  .text-left {
+    float: left;
+  }
+
+  .text-right {
+    float: right;
+  }
+
+  .price {
+    font-size: 20px;
+    color: #FF9933;
+  }
+}
+
+.order-item-line {
+  width: 100%;
+  border-bottom: 1px solid #999;
+}
+
+.order-item-btn-con {
+  text-align: right;
+  margin-top: 5px;
+
+  .btn {
+    float: right;
+  }
+}

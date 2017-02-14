@@ -4,6 +4,8 @@
 import React, {Component, PropTypes} from 'react'
 import CommonHeader from '../components/commonHeader'
 
+import './common.scss';
+
 class Main extends Component {
     constructor(props) {
         super(props)
