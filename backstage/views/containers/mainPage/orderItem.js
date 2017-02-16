@@ -1,11 +1,11 @@
 /**
  * Created by duanzheng on 2017/2/13.
  */
-import React, {Component, PropTypes} from 'react'
-import {Button, ButtonToolbar} from 'react-bootstrap'
-import moment from 'moment'
-import {connect} from 'react-redux'
-import {refuseOrder} from '../../actions/order'
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { Button, ButtonToolbar } from 'react-bootstrap';
+import moment from 'moment';
+import { refuseOrder } from '../../actions/order';
 
 import './orderItem.scss'
 
@@ -23,15 +23,10 @@ class OrderItem extends Component {
         return ret
     }
 
-    refuse() {
-        const {dispatch} = this.props;
-        const {id} = this.props.msg;
-        dispatch(refuseOrder(id));
-    }
-
     render() {
-        const {beginDate, endDate, arriveTime, roomName, roomNumber, customerName, totalCost} = this.props.msg;
-        var dateMsg = this.initDate(beginDate, endDate);
+        const { onRefuse } = this.props;
+        const { beginDate, endDate, arriveTime, roomName, roomNumber, customerName, totalCost } = this.props.msg;
+        const dateMsg = this.initDate(beginDate, endDate);
 
         return (
             <li>
@@ -50,7 +45,10 @@ class OrderItem extends Component {
                 </div>
                 <div className="order-item-line"></div>
                 <ButtonToolbar className="order-item-btn-con">
-                    <Button onClick={this.refuse}>拒绝</Button>
+                    <Button onClick={e => {
+                        e.preventDefault();
+                        onRefuse();
+                    }}>拒绝</Button>
                     <Button bsStyle="primary">接受</Button>
                 </ButtonToolbar>
             </li>
@@ -58,4 +56,14 @@ class OrderItem extends Component {
     }
 }
 
-export default connect()(OrderItem);
+const mapStateToProps = (state, ownProps) => ({
+
+});
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    onRefuse: () => {
+        dispatch(refuseOrder(ownProps.msg.id));
+    }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(OrderItem);
