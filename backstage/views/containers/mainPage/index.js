@@ -30,7 +30,7 @@ class MainPage extends Component {
                 <section className="mainpage-list-container">
                     <Panel header="系统通知">
                         {this.props.noticeList.map((item) =>
-                            <NoticeItem key={item.id} msg={item}></NoticeItem>
+                            <NoticeItem key={item.id} msg={item}/>
                         )}
                     </Panel>
                 </section>
