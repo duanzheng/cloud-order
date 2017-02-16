@@ -19,8 +19,8 @@ class MainPage extends Component {
             <div>
                 <section className="mainpage-list-container">
                     <Panel header={'1张未处理订单'}>
-                        {this.props.latelyOrderList.map((item) =>
-                            <OrderItem key={item.id} msg={item}></OrderItem>
+                        {this.props.latelyOrderList.map((item, index) =>
+                            <OrderItem key={index} msg={item} />
                         )}
                     </Panel>
                 </section>

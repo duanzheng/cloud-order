@@ -1,6 +1,10 @@
 /**
  * Created by duanzheng on 2017/2/13.
  */
+import {
+    REFUSE_ORDER
+} from '../actions/order'
+
 const demoOrder = {
     latelyList: [{
         id: 1,
@@ -16,6 +20,17 @@ const demoOrder = {
 
 function order(state = demoOrder, action) {
     switch (action.type) {
+        case REFUSE_ORDER:
+            let delIndex = 0;
+            for (let i in state) {
+                if (state[i].id == action.id) {
+                    delIndex = i;
+                }
+            }
+            return [
+                ...state.slice(0, delIndex),
+                ...state.slice(delIndex + 1)
+            ];
         default:
             return state;
     }

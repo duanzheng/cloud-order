@@ -4,24 +4,14 @@
 import React, {Component, PropTypes} from 'react'
 import {Button, ButtonToolbar} from 'react-bootstrap'
 import moment from 'moment'
+import {connect} from 'react-redux'
+import {refuseOrder} from '../../actions/order'
 
 import './orderItem.scss'
 
 class OrderItem extends Component {
     constructor(props) {
         super(props)
-
-        const {beginDate, endDate, arriveTime, roomName, roomNumber, customerName, totalCost} = props.msg
-
-        this.state = {
-            beginDate,
-            endDate,
-            arriveTime,
-            roomName,
-            roomNumber,
-            customerName,
-            totalCost
-        }
     }
 
     initDate(beginDate, endDate) {
@@ -33,27 +23,34 @@ class OrderItem extends Component {
         return ret
     }
 
+    refuse() {
+        const {dispatch} = this.props;
+        const {id} = this.props.msg;
+        dispatch(refuseOrder(id));
+    }
+
     render() {
-        var dateMsg = this.initDate(this.state.beginDate, this.state.endDate);
+        const {beginDate, endDate, arriveTime, roomName, roomNumber, customerName, totalCost} = this.props.msg;
+        var dateMsg = this.initDate(beginDate, endDate);
 
         return (
             <li>
                 <div className="order-item-row-content">
                     <section className="text-left">{dateMsg}</section>
-                    <section className="text-right">{this.state.arriveTime}到店</section>
+                    <section className="text-right">{arriveTime}到店</section>
                 </div>
                 <div className="order-item-row-content">
-                    <section className="text-left">{this.state.roomName + this.state.roomNumber}间</section>
-                    <section className="text-right">{this.state.customerName}</section>
+                    <section className="text-left">{roomName + roomNumber}间</section>
+                    <section className="text-right">{customerName}</section>
                 </div>
                 <div className="order-item-row-content">
                     <section className="text-right">
-                        现付 <span className="price">RMB {this.state.totalCost}</span>
+                        现付 <span className="price">RMB {totalCost}</span>
                     </section>
                 </div>
                 <div className="order-item-line"></div>
                 <ButtonToolbar className="order-item-btn-con">
-                    <Button>拒绝</Button>
+                    <Button onClick={this.refuse}>拒绝</Button>
                     <Button bsStyle="primary">接受</Button>
                 </ButtonToolbar>
             </li>
@@ -61,4 +58,4 @@ class OrderItem extends Component {
     }
 }
 
-export default OrderItem
+export default connect()(OrderItem);
