@@ -3,6 +3,7 @@
  */
 import React, {Component, PropTypes} from 'react';
 import Explain from './explain';
+import Table from './table';
 
 import './calendar.scss'
 
@@ -16,6 +17,7 @@ class Calendar extends Component {
         return (
             <div>
                 <Explain/>
+                <Table></Table>
             </div>
         )
     }

@@ -26,6 +26,12 @@ module.exports = {
                 path.resolve(__dirname, 'views'),
             ],
             loader: 'style-loader!css-loader!sass-loader'
+        }, {
+            test: /\.css$/,
+            include: [
+                path.resolve(__dirname, 'views'),
+            ],
+            loader: 'style-loader!css-loader?modules&localIdentName=[name]__[local]-[hash:base64:5]'
         }],
     },
     resolve: {

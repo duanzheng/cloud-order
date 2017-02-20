@@ -1,0 +1,40 @@
+.root {
+    height: 60px;
+    background-color: #666666;
+    margin-top: 10px;
+}
+
+.today {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 18px;
+    text-align: center;
+    width: 140px;
+    line-height: 60px;
+    color: #FFF;
+}
+
+.list {
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
+}
+
+.item {
+    float: left;
+    background-color: #999999;
+    height: 60px;
+    width: 34px;
+    font-size: 16px;
+}
+
+.firstItem {
+    color: #FF3300;
+}
+
+.item div {
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #FFF;
+}

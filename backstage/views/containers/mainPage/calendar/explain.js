@@ -2,6 +2,7 @@
  * Created by Tony on 2017/2/20.
  */
 import React, { PropTypes, Component } from 'react';
+import styles from './explain.css';
 
 class Explain extends Component {
     constructor(props) {
@@ -12,8 +13,8 @@ class Explain extends Component {
         return (
             <div>
                 <p>点击日历内方格可快速开关房</p>
-                <span className="can-sale"/>可售
-                <span className="cannot-bill"/>不可订
+                <span className={styles.canSale}/>可售
+                <span className={styles.cannotBill}/>不可订
             </div>
         )
     }
