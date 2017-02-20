@@ -29,7 +29,7 @@ class OrderItem extends Component {
         const dateMsg = this.initDate(beginDate, endDate);
 
         return (
-            <li>
+            <li className="order-item">
                 <div className="order-item-row-content">
                     <section className="text-left">{dateMsg}</section>
                     <section className="text-right">{arriveTime}到店</section>

@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import {Panel} from 'react-bootstrap';
 import NoticeItem from './noticeItem';
 import OrderList from './orderList';
+import Calendar from './calendar/calendar';
 
 import './index.scss'
 
@@ -24,7 +25,7 @@ class MainPage extends Component {
                 </section>
                 <section className="mainpage-list-container">
                     <Panel header="房态日历">
-                        Panel content
+                        <Calendar></Calendar>
                     </Panel>
                 </section>
                 <section className="mainpage-list-container">

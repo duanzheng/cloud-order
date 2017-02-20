@@ -1,3 +1,13 @@
+.order-item {
+  background-color: #F2F2F2;
+  margin-top: 15px;
+  padding: 10px;
+}
+
+.order-item:first-child {
+  margin-top: 0;
+}
+
 .order-item-row-content {
   overflow: hidden;
 
