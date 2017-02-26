@@ -3,12 +3,13 @@
  */
 import React, {Component, PropTypes} from 'react'
 import {Button, Modal} from 'react-bootstrap'
+import CSSModules from 'react-css-modules';
+import styles from './noticeItem.scss';
 
-import './noticeItem.scss'
-
+@CSSModules(styles, { allowMultiple: true })
 class NoticeItem extends Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         const {title, date, content} = this.props.msg;
         this.state = {
@@ -34,8 +35,8 @@ class NoticeItem extends Component {
     render() {
         return (
             <div>
-                <Button bsStyle="link" className="notice-item-title" onClick={this.open.bind(this)}>{this.state.title}</Button>
-                <span className="notice-item-date">{this.state.date}</span>
+                <Button bsStyle="link" styleName="title" onClick={this.open.bind(this)}>{this.state.title}</Button>
+                <span>{this.state.date}</span>
 
                 <Modal show={this.state.showModal} onHide={this.close.bind(this)}>
                     <Modal.Header closeButton>

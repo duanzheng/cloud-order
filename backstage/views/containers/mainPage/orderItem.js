@@ -6,9 +6,10 @@ import { connect } from 'react-redux';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import moment from 'moment';
 import { refuseOrder } from '../../actions/order';
+import CSSModules from 'react-css-modules';
+import styles from './orderItem.scss';
 
-import './orderItem.scss'
-
+@CSSModules(styles, { allowMultiple: true })
 class OrderItem extends Component {
     constructor(props) {
         super(props)
@@ -29,22 +30,22 @@ class OrderItem extends Component {
         const dateMsg = this.initDate(beginDate, endDate);
 
         return (
-            <li className="order-item">
-                <div className="order-item-row-content">
+            <li styleName="item">
+                <div styleName="row-content">
                     <section className="text-left">{dateMsg}</section>
                     <section className="text-right">{arriveTime}到店</section>
                 </div>
-                <div className="order-item-row-content">
+                <div styleName="row-content">
                     <section className="text-left">{roomName + roomNumber}间</section>
                     <section className="text-right">{customerName}</section>
                 </div>
-                <div className="order-item-row-content">
+                <div styleName="row-content">
                     <section className="text-right">
                         现付 <span className="price">RMB {totalCost}</span>
                     </section>
                 </div>
-                <div className="order-item-line"></div>
-                <ButtonToolbar className="order-item-btn-con">
+                <div styleName="line"></div>
+                <ButtonToolbar styleName="btn-con">
                     <Button onClick={e => {
                         e.preventDefault();
                         onRefuse();

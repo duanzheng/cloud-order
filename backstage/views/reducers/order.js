@@ -25,7 +25,7 @@ const latelyList = [{
     totalCost: 2440
 }];
 
-export function latelyOrderList(state = latelyList, action) {
+export function latelyOrderList(state = [], action) {
     switch (action.type) {
         case REFUSE_ORDER:
             let delIndex = 0;

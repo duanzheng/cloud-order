@@ -1,14 +1,14 @@
-.order-item {
+.item {
   background-color: #F2F2F2;
   margin-top: 15px;
   padding: 10px;
 }
 
-.order-item:first-child {
+.item:first-child {
   margin-top: 0;
 }
 
-.order-item-row-content {
+.row-content {
   overflow: hidden;
 
   .text-left {
@@ -25,12 +25,12 @@
   }
 }
 
-.order-item-line {
+.line {
   width: 100%;
   border-bottom: 1px solid #999;
 }
 
-.order-item-btn-con {
+.btn-con {
   text-align: right;
   margin-top: 5px;
 
