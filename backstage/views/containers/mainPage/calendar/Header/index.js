@@ -22,6 +22,26 @@ class Header extends Component {
                         <div>日</div>
                         <div>15</div>
                     </li>
+                    <li className={styles.item}>
+                        <div>一</div>
+                        <div>16</div>
+                    </li>
+                    <li className={styles.item}>
+                        <div>二</div>
+                        <div>17</div>
+                    </li>
+                    <li className={styles.item}>
+                        <div>三</div>
+                        <div>18</div>
+                    </li>
+                    <li className={styles.item}>
+                        <div>四</div>
+                        <div>19</div>
+                    </li>
+                    <li className={styles.item}>
+                        <div>五</div>
+                        <div>20</div>
+                    </li>
                 </ul>
             </div>
         )
