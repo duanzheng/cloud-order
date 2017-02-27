@@ -4,7 +4,8 @@
 import React, {Component, PropTypes} from 'react';
 import OrderItem from './orderItem';
 import { connect } from 'react-redux';
-import FontAwesome from 'react-fontawesome';
+import Loading from './loading';
+
 import CSSModules from 'react-css-modules';
 import styles from './orderList.scss';
 
@@ -22,12 +23,7 @@ class OrderList extends Component {
         const { latelyOrderList } = this.props;
         return (
             <div>
-                <div styleName="loading">
-                    <FontAwesome
-                        name="spinner"
-                        spin="true"
-                    />
-                </div>
+                {this.state.isLoading ? <Loading /> : ''}
                 <ul>
                     {latelyOrderList.map((item, index) =>
                         <OrderItem key={index} msg={item} />
