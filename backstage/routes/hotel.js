@@ -59,4 +59,30 @@ router.post('/getHotelInfo', function(req, res, next) {
     }
 });
 
+router.get('/getCurOrders', function (req, res, next) {
+    var ret = {
+        error: 0,
+        msg: [{
+            id: 1,
+            beginDate: '2017-02-13',
+            endDate: '2017-02-15',
+            arriveTime: '14:00',
+            roomName: '豪华山景家庭套房',
+            roomNumber: 1,
+            customerName: '张三',
+            totalCost: 2440
+        }, {
+            id: 2,
+            beginDate: '2017-02-13',
+            endDate: '2017-02-15',
+            arriveTime: '14:00',
+            roomName: '豪华山景大床房',
+            roomNumber: 1,
+            customerName: '李四',
+            totalCost: 2440
+        }]
+    };
+    res.json(ret);
+});
+
 module.exports = router;

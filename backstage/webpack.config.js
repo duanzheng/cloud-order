@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     devtool: 'cheap-module-eval-source-map',
@@ -19,19 +20,26 @@ module.exports = {
             include: [
                 path.resolve(__dirname, 'views'),
             ],
+            exclude: /node_modules/,
             loaders: ['react-hot-loader', 'babel-loader'],
         }, {
             test: /\.scss$/,
             include: [
                 path.resolve(__dirname, 'views'),
             ],
-            loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!sass-loader?sourceMap=true&sourceMapContents=true'
+            loader: ExtractTextPlugin.extract({
+                fallback: 'style-loader',
+                use: 'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!sass-loader?sourceMap=true&sourceMapContents=true'
+            })
         }, {
             test: /\.css$/,
             include: [
                 path.resolve(__dirname, 'views'),
             ],
-            loader: 'style-loader!css-loader?modules&localIdentName=[name]__[local]-[hash:base64:5]'
+            loader: ExtractTextPlugin.extract({
+                fallback: 'style-loader',
+                use: 'css-loader?modules&localIdentName=[name]__[local]-[hash:base64:5]'
+            })
         }],
     },
     resolve: {
@@ -42,7 +50,18 @@ module.exports = {
     },
     plugins: [
         new webpack.NoEmitOnErrorsPlugin(),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        }),
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+            },
+        }),
+        new ExtractTextPlugin("bundle.css")
     ],
     devServer: {
         inline: true
