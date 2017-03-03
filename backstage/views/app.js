@@ -7,6 +7,7 @@ import reducer from './reducers'
 import Main from './containers/main'
 import MainPage from './containers/mainPage'
 import OrderMain from './containers/orderMain'
+import 'whatwg-fetch'
 
 const store = createStore(reducer)
 // if (module.hot) {

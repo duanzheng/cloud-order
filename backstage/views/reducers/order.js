@@ -2,7 +2,8 @@
  * Created by duanzheng on 2017/2/13.
  */
 import {
-    REFUSE_ORDER
+    REFUSE_ORDER,
+    INIT_CUR_ORDER
 } from '../actions/order'
 
 const latelyList = [{
@@ -38,6 +39,8 @@ export function latelyOrderList(state = [], action) {
                 ...state.slice(0, delIndex),
                 ...state.slice(delIndex + 1)
             ];
+        case INIT_CUR_ORDER:
+            return action.orderList;
         default:
             return state;
     }

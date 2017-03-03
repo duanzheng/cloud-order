@@ -19,6 +19,14 @@ class OrderList extends Component {
         }
     }
 
+    componentDidMount() {
+        fetch('/hotel/getCurOrders')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            });
+    }
+
     render() {
         const { latelyOrderList } = this.props;
         return (
